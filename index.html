@@ -144,11 +144,21 @@
         font-weight: 500;
       }
 
-      form input {
+      form input,
+      form select {
         width: 100%;
         padding: 0.5rem;
         border: 1px solid #ccc;
         border-radius: 8px;
+        font-size: 1rem; /* Asegura que el texto dentro del select sea legible */
+        color: #333; /* Color del texto */
+        background-color: #f8f8f8; /* Un gris claro de fondo */
+      }
+
+      /* Estilo para las opciones del select (opcional, pero mejora la consistencia) */
+      form select option {
+        background-color: #ffffff; /* Fondo blanco para las opciones */
+        color: #222;
       }
 
       form button {
@@ -335,6 +345,29 @@
         <div>
           <label for="email">Correo electrónico:</label>
           <input type="email" id="email" name="email" required />
+        </div>
+        <div>
+          <label for="documento">Tipo de Documento:</label>
+          <select id="documento" name="documento" required>
+            <option value="c.c">Cédula de Ciudadanía</option>
+            <option value="c.e">Cédula de Extranjería</option>
+            <option value="t.i">Tarjeta de Identidad</option>
+            <option value="p.e.p">PEP</option>
+            <option value="pasaporte">Pasaporte</option>
+          </select>
+        </div>
+        <div>
+          <label for="numero_documento">Número de Documento:</label>
+          <input
+            type="text"
+            id="numero_documento"
+            name="numero_documento"
+            required
+          />
+        </div>
+        <div>
+          <label for="telefono">Número de teléfono:</label>
+          <input type="tel" id="telefono" name="telefono" required />
         </div>
         <div>
           <label for="date">Fecha deseada:</label>
