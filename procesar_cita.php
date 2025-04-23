@@ -2,6 +2,9 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $nombre = htmlspecialchars($_POST["name"]);
   $correo = htmlspecialchars($_POST["email"]);
+  $tipo_documento = htmlspecialchars($_POST["documento"]);
+  $numero_documento = htmlspecialchars($_POST["numero_documento"]);
+  $telefono = htmlspecialchars($_POST["telefono"]);
   $fecha = htmlspecialchars($_POST["date"]);
 
   // Datos para conexión local
@@ -19,8 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   // Insertar datos
-  $stmt = $conn->prepare("INSERT INTO citas (nombre, correo, fecha) VALUES (?, ?, ?)");
-  $stmt->bind_param("sss", $nombre, $correo, $fecha);
+  $stmt = $conn->prepare("INSERT INTO citas (nombre, correo, tipo_documento, numero_documento, telefono, fecha) VALUES (?, ?, ?, ?, ?, ?)");
+  $stmt->bind_param("ssssss", $nombre, $correo, $tipo_documento, $numero_documento, $telefono, $fecha);
 
   if ($stmt->execute()) {
     $mensaje = "¡Hola $nombre! Tu cita para el día $fecha fue registrada exitosamente. Pronto nos contactaremos al correo $correo.";
