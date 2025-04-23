@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clínica Dental</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #222;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: #f0f8ff;
+      }
+
+      .logo {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: #007bff;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.5rem;
+        padding: 0;
+        margin: 0;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+      }
+
+      .appointment-btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+        background: linear-gradient(90deg, #e0f0ff, #ffffff);
+      }
+
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .primary-btn {
+        margin-top: 1rem;
+        padding: 0.75rem 1.25rem;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .services,
+      .experts,
+      .testimonials,
+      .advice {
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .service-list,
+      .doctor-list,
+      .testimonial-list {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin: 1rem 0;
+      }
+
+      .service-item,
+      .doctor,
+      .testimonial {
+        background-color: #f8f8f8;
+        padding: 1rem;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 250px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .doctor img {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
+      }
+
+      .doctor-name {
+        font-weight: bold;
+      }
+
+      .doctor-specialty {
+        color: #555;
+        font-size: 0.9rem;
+      }
+
+      footer {
+        text-align: center;
+        padding: 1rem;
+        background-color: #f0f0f0;
+        color: #666;
+      }
+
+      /* Formulario */
+      form {
+        width: 100%;
+        max-width: 500px;
+        margin: 2rem auto;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 123, 255, 0.1);
+      }
+
+      form div {
+        margin-bottom: 1rem;
+        text-align: left;
+      }
+
+      form label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      form input {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+
+      form button {
+        background-color: #007bff;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        nav ul {
+          flex-direction: column;
+          gap: 0.5rem;
+          margin-top: 1rem;
+        }
+
+        .hero {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .hero-image img {
+          max-width: 100%;
+          margin-top: 1rem;
+        }
+
+        .doctor-list,
+        .service-list,
+        .testimonial-list {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .service-item,
+        .doctor,
+        .testimonial {
+          width: 90%;
+          max-width: 350px;
+        }
+
+        form {
+          padding: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-text h1 {
+          font-size: 1.5rem;
+        }
+
+        .primary-btn,
+        .appointment-btn,
+        form button {
+          width: 100%;
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">LOGO</div>
+      <nav>
+        <ul>
+          <li><a href="#services">Servicios</a></li>
+          <li><a href="#doctors">Doctores</a></li>
+          <li><a href="#prices">Precios</a></li>
+          <li><a href="#appointment">Citas</a></li>
+        </ul>
+      </nav>
+      <button
+        class="appointment-btn"
+        onclick="document.getElementById('appointment').scrollIntoView({behavior: 'smooth'})"
+      >
+        Agendar cita
+      </button>
+    </header>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h1>
+          Tu <strong>SONRISA</strong>, tu mejor <strong>PRESENTACIÓN</strong>
+        </h1>
+        <p>
+          Cuida tu salud dental con tratamientos personalizados y la mejor
+          tecnología.
+        </p>
+        <button class="primary-btn">Conoce tu médico</button>
+      </div>
+      <div class="hero-image">
+        <img src="mujersonriendo.png" alt="Mujer sonriendo" width="300" />
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <h2>Servicio de salud para ti</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+      <div class="service-list">
+        <div class="service-item">Limpieza Dental</div>
+        <div class="service-item">Ortodoncia</div>
+        <div class="service-item">Implantes</div>
+        <div class="service-item">Blanqueamiento</div>
+      </div>
+      <div class="service-description">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+        <ul>
+          <li>Diagnóstico profesional</li>
+          <li>Atención personalizada</li>
+          <li>Tecnología avanzada</li>
+        </ul>
+        <button class="primary-btn">Conoce más</button>
+      </div>
+    </section>
+
+    <section id="doctors" class="experts">
+      <h2>Conozca a nuestros expertos</h2>
+      <div class="doctor-list">
+        <div class="doctor">
+          <img src="doctora1.png" alt="Doctor 1" />
+          <div class="doctor-name">Dra. Ana Rodríguez</div>
+          <div class="doctor-specialty">Ortodoncia</div>
+        </div>
+        <div class="doctor">
+          <img src="doctor1.png" alt="Doctor 2" />
+          <div class="doctor-name">Dr. Luis Martínez</div>
+          <div class="doctor-specialty">Implantología</div>
+        </div>
+        <div class="doctor">
+          <img src="doctor2.png" alt="Doctor 3" />
+          <div class="doctor-name">Dr. Pedro Gómez</div>
+          <div class="doctor-specialty">Estética dental</div>
+        </div>
+        <div class="doctor">
+          <img src="doctora2.png" alt="Doctor 4" />
+          <div class="doctor-name">Dra. Laura Sánchez</div>
+          <div class="doctor-specialty">Endodoncia</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h2>Comentarios de los pacientes</h2>
+      <div class="testimonial-list">
+        <div class="testimonial">
+          <strong>Juan P.</strong>
+          <p>Muy profesionales y atentos. Recomendado al 100%.</p>
+        </div>
+        <div class="testimonial">
+          <strong>María G.</strong>
+          <p>La atención es excelente y los resultados increíbles.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="advice">
+      <h2>Servicio de salud y buenos consejos</h2>
+      <p>Mantente al tanto con nuestros tips dentales y noticias de salud.</p>
+      <button class="primary-btn">Conoce más</button>
+    </section>
+
+    <section
+      id="appointment"
+      style="background-color: #e0f0ff; padding: 2rem; text-align: center"
+    >
+      <h2 style="color: #007bff; margin-bottom: 1rem">Agenda tu cita</h2>
+      <p>
+        Completa el formulario y nos pondremos en contacto contigo lo antes
+        posible.
+      </p>
+      <form action="procesar_cita.php" method="POST">
+        <div>
+          <label for="name">Nombre completo:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div>
+          <label for="email">Correo electrónico:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div>
+          <label for="date">Fecha deseada:</label>
+          <input type="date" id="date" name="date" required />
+        </div>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Clínica Dental. Todos los derechos reservados.</p>
+    </footer>
+  </body>
+</html>
