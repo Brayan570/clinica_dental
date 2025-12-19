@@ -3,382 +3,597 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clínica Dental</title>
-    <style>
-      body {
-        font-family: "Segoe UI", sans-serif;
-        margin: 0;
-        padding: 0;
-        color: #222;
-      }
-
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 2rem;
-        background-color: #f0f8ff;
-      }
-
-      .logo {
-        font-weight: bold;
-        font-size: 1.5rem;
-        color: #007bff;
-      }
-
-      nav ul {
-        list-style: none;
-        display: flex;
-        gap: 1.5rem;
-        padding: 0;
-        margin: 0;
-      }
-
-      nav a {
-        text-decoration: none;
-        color: #333;
-        font-weight: 500;
-      }
-
-      .appointment-btn {
-        background-color: #007bff;
-        color: white;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 8px;
-        cursor: pointer;
-      }
-
-      .hero {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 2rem;
-        background: linear-gradient(90deg, #e0f0ff, #ffffff);
-      }
-
-      .hero-text h1 {
-        font-size: 2rem;
-      }
-
-      .primary-btn {
-        margin-top: 1rem;
-        padding: 0.75rem 1.25rem;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-      }
-
-      .services,
-      .experts,
-      .testimonials,
-      .advice {
-        padding: 2rem;
-        text-align: center;
-      }
-
-      .service-list,
-      .doctor-list,
-      .testimonial-list {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        flex-wrap: wrap;
-        margin: 1rem 0;
-      }
-
-      .service-item,
-      .doctor,
-      .testimonial {
-        background-color: #f8f8f8;
-        padding: 1rem;
-        border-radius: 8px;
-        width: 100%;
-        max-width: 250px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-
-      .doctor img {
-        width: 100%;
-        border-radius: 8px;
-        margin-bottom: 0.5rem;
-      }
-
-      .doctor-name {
-        font-weight: bold;
-      }
-
-      .doctor-specialty {
-        color: #555;
-        font-size: 0.9rem;
-      }
-
-      footer {
-        text-align: center;
-        padding: 1rem;
-        background-color: #f0f0f0;
-        color: #666;
-      }
-
-      /* Formulario */
-      form {
-        width: 100%;
-        max-width: 500px;
-        margin: 2rem auto;
-        background-color: white;
-        padding: 2rem;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0, 123, 255, 0.1);
-      }
-
-      form div {
-        margin-bottom: 1rem;
-        text-align: left;
-      }
-
-      form label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: 500;
-      }
-
-      form input,
-      form select {
-        width: 100%;
-        padding: 0.5rem;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        font-size: 1rem; /* Asegura que el texto dentro del select sea legible */
-        color: #333; /* Color del texto */
-        background-color: #f8f8f8; /* Un gris claro de fondo */
-      }
-
-      /* Estilo para las opciones del select (opcional, pero mejora la consistencia) */
-      form select option {
-        background-color: #ffffff; /* Fondo blanco para las opciones */
-        color: #222;
-      }
-
-      form button {
-        background-color: #007bff;
-        color: white;
-        padding: 0.75rem 1.5rem;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: bold;
-      }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        header {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        nav ul {
-          flex-direction: column;
-          gap: 0.5rem;
-          margin-top: 1rem;
-        }
-
-        .hero {
-          flex-direction: column;
-          text-align: center;
-        }
-
-        .hero-image img {
-          max-width: 100%;
-          margin-top: 1rem;
-        }
-
-        .doctor-list,
-        .service-list,
-        .testimonial-list {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .service-item,
-        .doctor,
-        .testimonial {
-          width: 90%;
-          max-width: 350px;
-        }
-
-        form {
-          padding: 1rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .hero-text h1 {
-          font-size: 1.5rem;
-        }
-
-        .primary-btn,
-        .appointment-btn,
-        form button {
-          width: 100%;
-          font-size: 1rem;
-        }
-      }
-    </style>
+    <title>Clínica Dental - Tu Sonrisa es Nuestra Pasión</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <div class="logo">LOGO</div>
-      <nav>
-        <ul>
-          <li><a href="#services">Servicios</a></li>
-          <li><a href="#doctors">Doctores</a></li>
-          <li><a href="#prices">Precios</a></li>
-          <li><a href="#appointment">Citas</a></li>
-        </ul>
-      </nav>
-      <button
-        class="appointment-btn"
-        onclick="document.getElementById('appointment').scrollIntoView({behavior: 'smooth'})"
-      >
-        Agendar cita
-      </button>
+    <!-- Header con efecto glassmorphism -->
+    <header class="header" id="header">
+      <div class="container header-content">
+        <div class="logo">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <path
+              d="M20 5C11.716 5 5 11.716 5 20C5 28.284 11.716 35 20 35C28.284 35 35 28.284 35 20C35 11.716 28.284 5 20 5Z"
+              fill="url(#gradient)" />
+            <path
+              d="M20 12C16.686 12 14 14.686 14 18V22C14 25.314 16.686 28 20 28C23.314 28 26 25.314 26 22V18C26 14.686 23.314 12 20 12Z"
+              fill="white" />
+            <defs>
+              <linearGradient id="gradient" x1="5" y1="5" x2="35" y2="35">
+                <stop offset="0%" style="stop-color: #667eea" />
+                <stop offset="100%" style="stop-color: #764ba2" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="logo-text">DentalCare</span>
+        </div>
+
+        <nav class="nav" id="nav">
+          <ul class="nav-list">
+            <li><a href="#services" class="nav-link">Servicios</a></li>
+            <li><a href="#doctors" class="nav-link">Especialistas</a></li>
+            <li><a href="#testimonials" class="nav-link">Testimonios</a></li>
+            <li><a href="#appointment" class="nav-link">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <button class="btn-appointment" id="btnAppointment">
+          <span>Agendar Cita</span>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path
+              d="M5 10H15M15 10L10 5M15 10L10 15"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+
+        <button class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-text">
-        <h1>
-          Tu <strong>SONRISA</strong>, tu mejor <strong>PRESENTACIÓN</strong>
-        </h1>
-        <p>
-          Cuida tu salud dental con tratamientos personalizados y la mejor
-          tecnología.
-        </p>
-        <button class="primary-btn">Conoce tu médico</button>
-      </div>
-      <div class="hero-image">
-        <img src="mujersonriendo.png" alt="Mujer sonriendo" width="300" />
+      <div class="hero-background"></div>
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            Tu <span class="gradient-text">Sonrisa</span>,<br />
+            Tu Mejor <span class="gradient-text">Presentación</span>
+          </h1>
+          <p class="hero-description">
+            Transformamos sonrisas con tecnología de vanguardia y atención
+            personalizada. Tu bienestar es nuestra prioridad.
+          </p>
+          <div class="hero-buttons">
+            <button class="btn-primary">
+              <span>Conoce Nuestro Equipo</span>
+            </button>
+            <button class="btn-secondary">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-width="2" />
+                <path d="M10 8L16 12L10 16V8Z" fill="currentColor" />
+              </svg>
+              <span>Ver Video</span>
+            </button>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-number">15k+</div>
+              <div class="stat-label">Pacientes Felices</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">25+</div>
+              <div class="stat-label">Años de Experiencia</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">98%</div>
+              <div class="stat-label">Satisfacción</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="image-card">
+            <img src="mujersonriendo.png" alt="Sonrisa perfecta" />
+            <div class="floating-badge">
+              <span class="badge-icon">⭐</span>
+              <div>
+                <div class="badge-text">Calificación</div>
+                <div class="badge-value">4.9/5.0</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- Services Section -->
     <section id="services" class="services">
-      <h2>Servicio de salud para ti</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-      <div class="service-list">
-        <div class="service-item">Limpieza Dental</div>
-        <div class="service-item">Ortodoncia</div>
-        <div class="service-item">Implantes</div>
-        <div class="service-item">Blanqueamiento</div>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Nuestros Servicios</span>
+          <h2 class="section-title">Cuidado Dental Integral</h2>
+          <p class="section-description">
+            Ofrecemos una amplia gama de tratamientos dentales con tecnología de
+            última generación
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <rect width="40" height="40" rx="12" fill="#EEF2FF" />
+                <path
+                  d="M20 12L16 16L20 20L24 16L20 12Z"
+                  stroke="#667EEA"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path
+                  d="M12 20L16 24L20 20L16 16L12 20Z"
+                  stroke="#667EEA"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path
+                  d="M28 20L24 24L20 20L24 16L28 20Z"
+                  stroke="#667EEA"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path
+                  d="M20 28L16 24L20 20L24 24L20 28Z"
+                  stroke="#667EEA"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3 class="service-title">Limpieza Dental</h3>
+            <p class="service-description">
+              Profilaxis profesional para mantener tu boca saludable y prevenir
+              enfermedades.
+            </p>
+            <a href="#" class="service-link">Saber más →</a>
+          </div>
+
+          <div class="service-card featured">
+            <div class="featured-badge">Más Popular</div>
+            <div class="service-icon">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <rect width="40" height="40" rx="12" fill="#FEF3C7" />
+                <path
+                  d="M20 10C14 10 10 14 10 20C10 26 14 30 20 30C26 30 30 26 30 20C30 14 26 10 20 10Z"
+                  stroke="#F59E0B"
+                  stroke-width="2" />
+                <path
+                  d="M16 18L18 20L24 14"
+                  stroke="#F59E0B"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3 class="service-title">Ortodoncia</h3>
+            <p class="service-description">
+              Brackets y alineadores invisibles para corregir la posición de tus
+              dientes.
+            </p>
+            <a href="#" class="service-link">Saber más →</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <rect width="40" height="40" rx="12" fill="#DBEAFE" />
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="8"
+                  stroke="#3B82F6"
+                  stroke-width="2" />
+                <path
+                  d="M20 16V24M16 20H24"
+                  stroke="#3B82F6"
+                  stroke-width="2"
+                  stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3 class="service-title">Implantes</h3>
+            <p class="service-description">
+              Soluciones permanentes para reemplazar dientes perdidos con
+              resultados naturales.
+            </p>
+            <a href="#" class="service-link">Saber más →</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <rect width="40" height="40" rx="12" fill="#FCE7F3" />
+                <path
+                  d="M20 12L15 20H25L20 28"
+                  stroke="#EC4899"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3 class="service-title">Blanqueamiento</h3>
+            <p class="service-description">
+              Tratamientos avanzados para una sonrisa más blanca y brillante.
+            </p>
+            <a href="#" class="service-link">Saber más →</a>
+          </div>
+        </div>
       </div>
-      <div class="service-description">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-        <ul>
-          <li>Diagnóstico profesional</li>
-          <li>Atención personalizada</li>
-          <li>Tecnología avanzada</li>
-        </ul>
-        <button class="primary-btn">Conoce más</button>
+    </section>
+
+    <!-- Doctors Section -->
+    <section id="doctors" class="doctors">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Nuestro Equipo</span>
+          <h2 class="section-title">Especialistas de Primera Clase</h2>
+          <p class="section-description">
+            Profesionales altamente calificados dedicados a tu salud dental
+          </p>
+        </div>
+
+        <div class="doctors-grid">
+          <div class="doctor-card">
+            <div class="doctor-image">
+              <img src="doctora1.png" alt="Dra. Ana Rodríguez" />
+              <div class="doctor-overlay">
+                <button class="doctor-contact">Ver Perfil</button>
+              </div>
+            </div>
+            <div class="doctor-info">
+              <h3 class="doctor-name">Dra. Ana Rodríguez</h3>
+              <p class="doctor-specialty">Especialista en Ortodoncia</p>
+              <div class="doctor-rating">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span class="rating-text">4.9 (120 reseñas)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="doctor-card">
+            <div class="doctor-image">
+              <img src="doctor1.png" alt="Dr. Luis Martínez" />
+              <div class="doctor-overlay">
+                <button class="doctor-contact">Ver Perfil</button>
+              </div>
+            </div>
+            <div class="doctor-info">
+              <h3 class="doctor-name">Dr. Luis Martínez</h3>
+              <p class="doctor-specialty">Especialista en Implantología</p>
+              <div class="doctor-rating">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span class="rating-text">5.0 (95 reseñas)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="doctor-card">
+            <div class="doctor-image">
+              <img src="doctor2.png" alt="Dr. Pedro Gómez" />
+              <div class="doctor-overlay">
+                <button class="doctor-contact">Ver Perfil</button>
+              </div>
+            </div>
+            <div class="doctor-info">
+              <h3 class="doctor-name">Dr. Pedro Gómez</h3>
+              <p class="doctor-specialty">Estética Dental</p>
+              <div class="doctor-rating">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span class="rating-text">4.8 (87 reseñas)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="doctor-card">
+            <div class="doctor-image">
+              <img src="doctora2.png" alt="Dra. Laura Sánchez" />
+              <div class="doctor-overlay">
+                <button class="doctor-contact">Ver Perfil</button>
+              </div>
+            </div>
+            <div class="doctor-info">
+              <h3 class="doctor-name">Dra. Laura Sánchez</h3>
+              <p class="doctor-specialty">Especialista en Endodoncia</p>
+              <div class="doctor-rating">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span class="rating-text">4.9 (110 reseñas)</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="doctors" class="experts">
-      <h2>Conozca a nuestros expertos</h2>
-      <div class="doctor-list">
-        <div class="doctor">
-          <img src="doctora1.png" alt="Doctor 1" />
-          <div class="doctor-name">Dra. Ana Rodríguez</div>
-          <div class="doctor-specialty">Ortodoncia</div>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Testimonios</span>
+          <h2 class="section-title">Lo Que Dicen Nuestros Pacientes</h2>
         </div>
-        <div class="doctor">
-          <img src="doctor1.png" alt="Doctor 2" />
-          <div class="doctor-name">Dr. Luis Martínez</div>
-          <div class="doctor-specialty">Implantología</div>
-        </div>
-        <div class="doctor">
-          <img src="doctor2.png" alt="Doctor 3" />
-          <div class="doctor-name">Dr. Pedro Gómez</div>
-          <div class="doctor-specialty">Estética dental</div>
-        </div>
-        <div class="doctor">
-          <img src="doctora2.png" alt="Doctor 4" />
-          <div class="doctor-name">Dra. Laura Sánchez</div>
-          <div class="doctor-specialty">Endodoncia</div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "Excelente atención y profesionalismo. El equipo es muy amable y
+              me explicaron todo el proceso con detalle. Mi sonrisa nunca había
+              lucido mejor."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">JP</div>
+              <div>
+                <div class="author-name">Juan Pérez</div>
+                <div class="author-info">Paciente desde 2023</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "La mejor clínica dental de la ciudad. Los resultados superaron
+              mis expectativas y el trato es excepcional. Totalmente
+              recomendados."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">MG</div>
+              <div>
+                <div class="author-name">María González</div>
+                <div class="author-info">Paciente desde 2022</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "Después de años de inseguridad con mi sonrisa, finalmente
+              encontré el lugar perfecto. Gracias al equipo por su dedicación y
+              cuidado."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">CR</div>
+              <div>
+                <div class="author-name">Carlos Ramírez</div>
+                <div class="author-info">Paciente desde 2021</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="testimonials">
-      <h2>Comentarios de los pacientes</h2>
-      <div class="testimonial-list">
-        <div class="testimonial">
-          <strong>Juan P.</strong>
-          <p>Muy profesionales y atentos. Recomendado al 100%.</p>
-        </div>
-        <div class="testimonial">
-          <strong>María G.</strong>
-          <p>La atención es excelente y los resultados increíbles.</p>
+    <!-- Appointment Section -->
+    <section id="appointment" class="appointment">
+      <div class="container">
+        <div class="appointment-content">
+          <div class="appointment-info">
+            <h2 class="appointment-title">Agenda Tu Cita</h2>
+            <p class="appointment-description">
+              Completa el formulario y nos pondremos en contacto contigo lo
+              antes posible para confirmar tu cita.
+            </p>
+            <div class="appointment-features">
+              <div class="feature-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="#667EEA"
+                    stroke-width="2" />
+                  <path
+                    d="M8 12L11 15L16 9"
+                    stroke="#667EEA"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                <span>Respuesta en 24 horas</span>
+              </div>
+              <div class="feature-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="#667EEA"
+                    stroke-width="2" />
+                  <path
+                    d="M8 12L11 15L16 9"
+                    stroke="#667EEA"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                <span>Primera consulta gratuita</span>
+              </div>
+              <div class="feature-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="#667EEA"
+                    stroke-width="2" />
+                  <path
+                    d="M8 12L11 15L16 9"
+                    stroke="#667EEA"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                <span>Planes de financiamiento</span>
+              </div>
+            </div>
+          </div>
+
+          <form class="appointment-form" id="appointmentForm">
+            <div class="form-group">
+              <label for="name">Nombre Completo</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="Ej: Juan Pérez" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Correo Electrónico</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="correo@ejemplo.com" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="documento">Tipo de Documento</label>
+                <select id="documento" name="documento" required>
+                  <option value="">Seleccionar...</option>
+                  <option value="c.c">Cédula de Ciudadanía</option>
+                  <option value="c.e">Cédula de Extranjería</option>
+                  <option value="t.i">Tarjeta de Identidad</option>
+                  <option value="p.e.p">PEP</option>
+                  <option value="pasaporte">Pasaporte</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="numero_documento">Número de Documento</label>
+                <input
+                  type="text"
+                  id="numero_documento"
+                  name="numero_documento"
+                  required
+                  placeholder="1234567890" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input
+                  type="tel"
+                  id="telefono"
+                  name="telefono"
+                  required
+                  placeholder="+57 300 123 4567" />
+              </div>
+
+              <div class="form-group">
+                <label for="date">Fecha Deseada</label>
+                <input type="date" id="date" name="date" required />
+              </div>
+            </div>
+
+            <button type="submit" class="btn-submit">
+              <span>Enviar Solicitud</span>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path
+                  d="M5 10H15M15 10L10 5M15 10L10 15"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </form>
         </div>
       </div>
     </section>
 
-    <section class="advice">
-      <h2>Servicio de salud y buenos consejos</h2>
-      <p>Mantente al tanto con nuestros tips dentales y noticias de salud.</p>
-      <button class="primary-btn">Conoce más</button>
-    </section>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <div class="footer-logo">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <path
+                  d="M20 5C11.716 5 5 11.716 5 20C5 28.284 11.716 35 20 35C28.284 35 35 28.284 35 20C35 11.716 28.284 5 20 5Z"
+                  fill="url(#gradient2)" />
+                <path
+                  d="M20 12C16.686 12 14 14.686 14 18V22C14 25.314 16.686 28 20 28C23.314 28 26 25.314 26 22V18C26 14.686 23.314 12 20 12Z"
+                  fill="white" />
+                <defs>
+                  <linearGradient id="gradient2" x1="5" y1="5" x2="35" y2="35">
+                    <stop offset="0%" style="stop-color: #667eea" />
+                    <stop offset="100%" style="stop-color: #764ba2" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <span>DentalCare</span>
+            </div>
+            <p class="footer-description">
+              Transformando sonrisas con pasión y profesionalismo desde 1998.
+            </p>
+          </div>
 
-    <section
-      id="appointment"
-      style="background-color: #e0f0ff; padding: 2rem; text-align: center"
-    >
-      <h2 style="color: #007bff; margin-bottom: 1rem">Agenda tu cita</h2>
-      <p>
-        Completa el formulario y nos pondremos en contacto contigo lo antes
-        posible.
-      </p>
-      <form action="procesar_cita.php" method="POST">
-        <div>
-          <label for="name">Nombre completo:</label>
-          <input type="text" id="name" name="name" required />
-        </div>
-        <div>
-          <label for="email">Correo electrónico:</label>
-          <input type="email" id="email" name="email" required />
-        </div>
-        <div>
-          <label for="documento">Tipo de Documento:</label>
-          <select id="documento" name="documento" required>
-            <option value="c.c">Cédula de Ciudadanía</option>
-            <option value="c.e">Cédula de Extranjería</option>
-            <option value="t.i">Tarjeta de Identidad</option>
-            <option value="p.e.p">PEP</option>
-            <option value="pasaporte">Pasaporte</option>
-          </select>
-        </div>
-        <div>
-          <label for="numero_documento">Número de Documento:</label>
-          <input
-            type="text"
-            id="numero_documento"
-            name="numero_documento"
-            required
-          />
-        </div>
-        <div>
-          <label for="telefono">Número de teléfono:</label>
-          <input type="tel" id="telefono" name="telefono" required />
-        </div>
-        <div>
-          <label for="date">Fecha deseada:</label>
-          <input type="date" id="date" name="date" required />
-        </div>
-        <button type="submit">Enviar</button>
-      </form>
-    </section>
+          <div class="footer-column">
+            <h4>Servicios</h4>
+            <ul>
+              <li><a href="#services">Limpieza Dental</a></li>
+              <li><a href="#services">Ortodoncia</a></li>
+              <li><a href="#services">Implantes</a></li>
+              <li><a href="#services">Blanqueamiento</a></li>
+            </ul>
+          </div>
 
-    <footer>
-      <p>&copy; 2025 Clínica Dental. Todos los derechos reservados.</p>
+          <div class="footer-column">
+            <h4>Empresa</h4>
+            <ul>
+              <li><a href="#doctors">Nuestro Equipo</a></li>
+              <li><a href="#testimonials">Testimonios</a></li>
+              <li><a href="#appointment">Contacto</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul>
+              <li>📞 +57 300 123 4567</li>
+              <li>✉️ info@dentalcare.com</li>
+              <li>📍 Cúcuta, Colombia</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 DentalCare. Todos los derechos reservados.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="Twitter">Twitter</a>
+          </div>
+        </div>
+      </div>
     </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
